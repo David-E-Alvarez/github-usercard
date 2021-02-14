@@ -1,9 +1,18 @@
+import axios from 'axios';
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+//const axios = require('axios');
 
+axios.get('https://api.github.com/users/David-E-Alvarez')
+  .then(function(response){
+    console.log("fudge yeah!", response);
+  })
+  .catch(function(error){
+    console.log(error)
+  })
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
