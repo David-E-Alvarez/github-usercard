@@ -60,11 +60,21 @@ const followersArray = [];
 
 function gitHubUserCard(object){
   console.log("github user card function object: ", object.data.name)
-  const div = document.createElement("div");
-  div.className = "card";
-  const img = document.createElement("img");
-  img.src = object.data.avatar_url
-  div.appendChild(img);
+  const div = document.createElement("div");// <div>
+  div.className = "card";//<div class="card">
+  const img = document.createElement("img");// <img>
+  img.src = object.data.avatar_url // <img src>
+  div.appendChild(img);// add img to div
+  const div2 = document.createElement("div");//<div>
+  div2.className = "card-info";//<div class="card-info"
+  div.appendChild(div2)//add div2 to div
+  const h3 = document.createElement("h3")
+  h3.className = "name"
+  //const h3_text = document.createTextNode(object.data.name)
+  div2.appendChild(h3)
+  //h3.appendChild(h3_text)
+  //document.body.appendChild(h3)
+
   document.body.appendChild(div);
 }
 
