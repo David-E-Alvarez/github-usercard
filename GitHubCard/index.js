@@ -9,10 +9,12 @@ import axios from 'axios';
 axios.get('https://api.github.com/users/David-E-Alvarez')
   .then(function(response){
     console.log("fudge yeah!", response);
+    gitHubUserCard(response)
   })
   .catch(function(error){
     console.log(error)
   })
+
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -58,6 +60,14 @@ const followersArray = [];
       </div>
     </div>
 */
+function gitHubUserCard(object){
+  console.log("github user card function object: ", object.data.name)
+  const heading = document.createElement("h1");
+  const heading_text = document.createTextNode("Big Head!");
+  heading.appendChild(heading_text);
+  document.body.appendChild(heading);
+}
+
 
 /*
   List of LS Instructors Github username's:
