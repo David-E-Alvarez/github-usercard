@@ -62,18 +62,45 @@ function gitHubUserCard(object){
   console.log("github user card function object: ", object.data.name)
   const div = document.createElement("div");// <div>
   div.className = "card";//<div class="card">
+
   const img = document.createElement("img");// <img>
   img.src = object.data.avatar_url // <img src>
   div.appendChild(img);// add img to div
+
   const div2 = document.createElement("div");//<div>
   div2.className = "card-info";//<div class="card-info"
   div.appendChild(div2)//add div2 to div
+
   const h3 = document.createElement("h3")
   h3.className = "name"
-  //const h3_text = document.createTextNode(object.data.name)
+  const h3_text = document.createTextNode("Name: " + object.data.name)
   div2.appendChild(h3)
-  //h3.appendChild(h3_text)
-  //document.body.appendChild(h3)
+  h3.appendChild(h3_text)
+  
+  const p = document.createElement("p")
+  p.className = "username"
+  const p_text = document.createTextNode("Username: " + object.data.login)
+  div2.appendChild(p)
+  p.appendChild(p_text)
+
+  const p2 = document.createElement("p")
+  const p2_text = document.createTextNode("Location: " + object.data.location)
+  div2.appendChild(p2)
+  p2.appendChild(p2_text)
+
+  const p3 = document.createElement("p")
+  div2.appendChild(p3)
+  const a = document.createElement("a")
+  a.href = "https://github.com/David-E-Alvarez"
+  const a_text = document.createTextNode("GitHub: " + object.data.html_url)
+  a.appendChild(a_text)
+  p3.appendChild(a)
+
+  
+
+
+
+
 
   document.body.appendChild(div);
 }
