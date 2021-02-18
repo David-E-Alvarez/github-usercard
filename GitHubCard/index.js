@@ -96,6 +96,24 @@ function gitHubUserCard(object){
   a.appendChild(a_text)
   p3.appendChild(a)
 
+  const p4 = document.createElement("p")
+  div2.appendChild(p4)
+  const p4_text = document.createTextNode("Followers: " + object.data.followers)
+  p4.appendChild(p4_text)
+
+  const p5 = document.createElement("p")
+  div2.appendChild(p5)
+  const p5_text = document.createTextNode("Following: " + object.data.following)
+  p5.appendChild(p5_text)
+
+  const p6 = document.createElement("p")
+  div2.appendChild(p6)
+  const p6_text = document.createTextNode("Bio: " + object.data.bio)
+  p6.appendChild(p6_text)
+
+
+
+
   
 
 
