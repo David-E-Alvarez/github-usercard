@@ -63,6 +63,7 @@ function gitHubUserCard(object){
   const div = document.createElement("div");// <div>
   div.className = "card";//<div class="card">
 
+
   const img = document.createElement("img");// <img>
   img.src = object.data.avatar_url // <img src>
   div.appendChild(img);// add img to div
@@ -110,17 +111,12 @@ function gitHubUserCard(object){
   div2.appendChild(p6)
   const p6_text = document.createTextNode("Bio: " + object.data.bio)
   p6.appendChild(p6_text)
-
-
-
-
   
-
-
-
-
-
-  document.body.appendChild(div);
+  const cardsDivHTMLCollection = document.getElementsByClassName('cards')
+  const cardsDiv = cardsDivHTMLCollection[0]//using to append my card div to
+  console.log("cardsDiv: ", cardsDiv)
+  cardsDiv.appendChild(div)//appends my card div to cards div
+  //document.body.appendChild(div);
 }
 
 
