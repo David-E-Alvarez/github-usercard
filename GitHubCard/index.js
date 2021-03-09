@@ -38,6 +38,41 @@ axios.get('https://api.github.com/users/David-E-Alvarez')
 
 const followersArray = [];
 
+axios.get('https://api.github.com/users/David-E-Alvarez/followers')//axios calls are
+  .then(function(response){
+    //console.log("response.data: ", response.data);
+    //followersArray.push(...response.data)
+    response.data.forEach(element => {
+      //console.log("JSON.stringify(element.login): ", JSON.stringify(element.login))
+      //console.log("element: ", element)
+      // console.log("typeof(followersArray): ",typeof(followersArray))
+      followersArray.push(element.login)
+    })
+  })
+  .then(() => followersArray.forEach(follower => {
+    axios.get(`https://api.github.com/users/${follower}`)
+      .then(function(response){
+        //console.log("response.data------->: ",response.data)
+        gitHubUserCard(response)
+      })}))
+  .catch(function(error){
+    console.log("error--->", error)
+  })
+  
+  //console.log("JSON.stringify(followersArray): ",JSON.stringify(followersArray))//outputs "[]" 
+
+
+
+
+//.then(() => followersArray.forEach(follower => console.log("HERE--->", follower)))
+
+  
+
+  
+  
+
+
+
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
     Using DOM methods and properties, create and return the following markup:
@@ -59,7 +94,7 @@ const followersArray = [];
 */
 
 function gitHubUserCard(object){
-  console.log("github user card function object: ", object.data.name)
+  //console.log("github user card function object: ", object.data.name)
   const div = document.createElement("div");// <div>
   div.className = "card";//<div class="card">
 
@@ -114,9 +149,10 @@ function gitHubUserCard(object){
   
   const cardsDivHTMLCollection = document.getElementsByClassName('cards')
   const cardsDiv = cardsDivHTMLCollection[0]//using to append my card div to
-  console.log("cardsDiv: ", cardsDiv)
+  //console.log("cardsDiv: ", cardsDiv)
   cardsDiv.appendChild(div)//appends my card div to cards div
   //document.body.appendChild(div);
+
 }
 
 
